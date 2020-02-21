@@ -1,0 +1,21 @@
+<ion-content class="background" >
+<img class="imagen" src="../../../assets/images/01-14_86377.svg" >
+
+  <ion-card class="backgroundCard ion-padding sinBordes" >
+    <form [formGroup]="loginForm">
+      <ion-item class="backgroundCard" >
+        <ion-label position="floating"> Correo electrónico</ion-label>
+        <ion-input formControlName="email" type="email" name="email"></ion-input>
+      </ion-item>
+      <ion-item class="backgroundCard">
+        <ion-label position="floating" > Contraseña</ion-label>
+        <ion-input formControlName="password" type="password" name="password"></ion-input>
+      </ion-item>
+      
+        <ion-button expand="block" class="btn" (click)="onSignIn()" >Ingresar</ion-button>
+      
+        <ion-button expand="block" class="btn" >Registrarse</ion-button>  
+     </form>
+  </ion-card>
+  
+</ion-content>

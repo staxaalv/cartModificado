@@ -1,0 +1,28 @@
+.background{
+    --background: url('../../../assets/images/playa.jpg') 0 0/100% 100% no-repeat  ;
+}
+
+.backgroundCard{
+    --background: rgba(11, 73, 73, 0.205);
+}
+.sinBordes{
+    --border-style: none !important;
+}
+.imagen{
+    width:150px;
+    height:150px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+.btn{
+    //display:block;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 30px !important;
+    --color: #000000 ;
+    
+    --border-radius: 30px;
+
+}
