@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormBuilder,FormControl,Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertController, NavController } from '@ionic/angular';
+import { User } from 'src/app/shared/user.class';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -8,8 +10,11 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
   public loginForm: FormGroup;
+  
+  user: User= new User;
+  userUid:String="";
    
-  constructor(public router: Router, public formBuilder: FormBuilder) { 
+  constructor(public router: Router, public formBuilder: FormBuilder,public alertController: AlertController,private navControler:NavController) { 
     
     
     /*this.loginForm=this.formBuilder.group({
@@ -37,13 +42,29 @@ export class LoginPage implements OnInit {
   });
   }
   onSignIn() {
-    console.log('what is goin on');
     console.log(this.loginForm.valid);
-    //this.router.navigateByUrl('/register');
-}
+    if(!this.loginForm.valid){
+      this.presentAlert();
+    }
+    else{
+      console.log("entraste"+this.user.email+this.user.password);
+    }
+  }
 
 
   ngOnInit() {
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Alerta de Formulario',
+      message: 'Ingrese Datos Correctamente',
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+  goRegister(){
+    this.navControler.navigateForward("/register");
   }
 
 }
